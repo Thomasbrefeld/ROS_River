@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="ros_river" name="simple_display_test" type="simple_display_test.py" output="screen" launch-prefix="sudo"/>
+</launch>
+

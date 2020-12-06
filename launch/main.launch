@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="ros_river" name="main" type="main.py" output="screen"/>
+</launch>
