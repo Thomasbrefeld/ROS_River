@@ -45,7 +45,7 @@ class DisplayHander(ROSHandler):
 		while True:
 			try:
 				self.processStatus = subprocess.check_call(["sudo", "-H", "python3", 
-						"/home/ubuntu/catkin_ws/src/ros_river/src/show1.py",
+						"/home/ubuntu/catkin_ws/src/ROS_River/src/show1.py",
 						str(self.displayWidth), str(self.displayHeight),
 						str(self.brightness), str(self.text),str(self.counter),
 						str(self.status)])

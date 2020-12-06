@@ -6,7 +6,7 @@ try:
 	import neopixel
 	from PIL import Image, ImageDraw, ImageFont, ImageOps
 
-	font = ImageFont.truetype("/home/ubuntu/catkin_ws/src/ros_river/src/5x7.ttf", 16)
+	font = ImageFont.truetype("/home/ubuntu/catkin_ws/src/ROS_River/src/5x7.ttf", 16)
 	displayOrder = neopixel.GRB
 	displayPin = board.D18
 

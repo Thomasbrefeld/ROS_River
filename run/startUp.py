@@ -40,7 +40,7 @@ try:
 			else:
 				rosProcess.wait()
 			rosProcess = subprocess.Popen("sudo " + "-H " + "python3 " +
-						"/home/ubuntu/catkin_ws/src/ros_river/src/show1.py " + " " +
+						"/home/ubuntu/catkin_ws/src/ROS_River/src/show1.py " + " " +
 						str(32) + " " + str(8) + " "  + str(.01) + " 'Waiting for ROS Connection' " + str(counter) + " " +str(2), stdout = subprocess.PIPE, shell = True)
 			counter += 1
 		time.sleep(.1)
@@ -54,11 +54,11 @@ finally:
 		mainProcess.kill()
 	try:
 		subprocess.check_call(["sudo", "-H", "python3",
-				"/home/ubuntu/catkin_ws/src/ros_river/src/show1.py",
+				"/home/ubuntu/catkin_ws/src/ROS_River/src/show1.py",
 				str(32), str(8), str(.01), "Done", str(0), str(0)])
 		time.sleep(3)
 	except:
 		pass
 	subprocess.check_call(["sudo", "-H", "python3",
-				"/home/ubuntu/catkin_ws/src/ros_river/src/show1.py",
+				"/home/ubuntu/catkin_ws/src/ROS_River/src/show1.py",
 				str(32), str(8)])
