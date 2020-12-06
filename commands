@@ -1,8 +1,8 @@
 systemctl is-active avahi-daemon.servicesystemctl is-active avahi-daemon.service
 sudo nano blacklist.conf
 sudo -H pip3 install psutil
-sudo systemct1 disable magni-base
-sudo systemct1 disable roscore
+sudo systemctl disable magni-base
+sudo systemctl disable roscore
 sudo dhclient -v eth0
 sudo lshw -C network
 auto lo
