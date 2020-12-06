@@ -1,0 +1,9 @@
+127.0.0.1       localhost
+::1             localhost ip6-localhost ip6-loopback
+ff02::1         ip6-allnodes
+ff02::2         ip6-allrouters
+
+127.0.1.1       ubiquityrobot ubiquityrobot.local
+
+192.168.1.32    ros-sandisk
+192.168.60.100  actor2
