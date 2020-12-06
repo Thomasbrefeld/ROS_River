@@ -7,3 +7,6 @@ sudo dhclient -v eth0
 sudo lshw -C network
 auto lo
 sudo -H python3 show1.py 32 8 .01 "Hell1dasaw" 50 9
+
+sudo visudo
+ubuntu ALL=(ALL) NOPASSWD: ALL
