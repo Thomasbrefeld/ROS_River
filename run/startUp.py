@@ -41,8 +41,8 @@ try:
 				rosProcess.wait()
 			rosProcess = subprocess.Popen("sudo " + "-H " + "python3 " +
 						"/home/ubuntu/catkin_ws/src/ROS_River/src/show1.py " + " " +
-						str(32) + " " + str(8) + " "  + str(.01) + " 'Waiting for ROS Connection' " + str(counter) + " " +str(2), stdout = subprocess.PIPE, shell = True)
-			counter += 1
+						str(32) + " " + str(8) + " "  + str(.01) + " 'ROS Connection Error' " + str(counter) + " " + str(2), stdout = subprocess.PIPE, shell = True)
+			counter += 3
 		time.sleep(.1)
 
 except Exception as e:

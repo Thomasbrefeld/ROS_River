@@ -31,15 +31,15 @@ try:
 			textWidth, textHeight = font.getsize(text)
 			statusWidth, statusHeight = font.getsize(status)
 
-			offset = count % (textWidth - self.width + statusWidth + 20)
+			offset = count % (textWidth - self.width + statusWidth + 12)
 			if (textWidth < self.width):
 				offset = 0
-			elif (offset < 10):
+			elif (offset < 6):
 				offset = 0
-			elif (offset > (textWidth - self.width + statusWidth + 10)):
+			elif (offset > (textWidth - self.width + statusWidth + 6)):
 				offset = (textWidth - self.width + statusWidth)
 			else:
-				offset -= 10
+				offset -= 6
 
 			textImage = Image.new('P', (textWidth + self.width - statusWidth - 1, self.height), 0)
 			textdraw = ImageDraw.Draw(textImage)
@@ -64,7 +64,10 @@ try:
 			for x in range (statusWidth):
 				for y in range (self.height):
 					if (statusImage.getpixel((x,y)) == 255):
-						self.pixels[self.getIndex(x + loc, y)] = self.color
+						if int(status) is 0:
+							self.pixels[self.getIndex(x + loc, y)] = self.color
+						else:
+							self.pixels[self.getIndex(x + loc, y)] = (255,75,75)
 					else:
 						self.pixels[self.getIndex(x + loc, y)] = (0,0,0)
 			if (count % 2 < 1):
