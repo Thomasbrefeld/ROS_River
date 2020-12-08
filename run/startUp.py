@@ -62,3 +62,4 @@ finally:
 	subprocess.check_call(["sudo", "-H", "python3",
 				"/home/ubuntu/catkin_ws/src/ROS_River/src/show1.py",
 				str(32), str(8)])
+	sys.exit(0)

@@ -19,6 +19,7 @@ class ROSHandler:
 	logOut = None #level, msg, time
 	enabled = False
 	last = 0
+	joyFirst = True
 	joy = False
 
 	text = "Wait"
@@ -38,7 +39,15 @@ class ROSHandler:
 		self.auto = bool(msg.data)
 
 	def logCB(self, msg):
-		if msg.name is "/joy_node":
+		if self.joy:
+			return
+		elif msg.name == "/joy_node":
+			if self.joyFirst:
+				self.joyFirst = False
+				return
+			if msg.level is 2:
+				self.joy = False
+				return
 			self.joy = True
 			self.logOut = (msg.level, msg.msg, msg.header.stamp.to_sec())
 		elif self.logOut is None or msg.level >= self.logOut[0] or rospy.Time.now().to_sec() - 11 > self.logOut[2]:
