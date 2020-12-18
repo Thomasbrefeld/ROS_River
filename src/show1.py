@@ -11,6 +11,10 @@ try:
 	displayPin = board.D18
 
 	class Show:
+		'''
+		Show class setups up display setings and shows
+		inputed data to the display
+		'''
 		def __init__(self, width, height, brightness = .1, color = (255, 255, 255)):
 			self.width = width
 			self.height = height
@@ -89,13 +93,16 @@ try:
 		sys.argv[1] = int(sys.argv[1])
 		sys.argv[2] = int(sys.argv[2])
 		if (len(sys.argv) == 7):
+			#converts the input data to the correct data type
 			sys.argv[3] = float(sys.argv[3])
 			sys.argv[4] = str(sys.argv[4])
 			sys.argv[5] = int(sys.argv[5])
 			sys.argv[6] = int(sys.argv[6])
 		if (len(sys.argv) == 3):
+			#clears the screen
 			Show(sys.argv[1], sys.argv[2]).clear()
 		if (len(sys.argv) == 7):
+			#displays the information to the screen
 			Show(sys.argv[1], sys.argv[2], sys.argv[3]).show(sys.argv[4], sys.argv[5], sys.argv[6])
 except KeyboardInterrupt:
 	print(" keyboard Interrupt in show1.py: Exiting")
