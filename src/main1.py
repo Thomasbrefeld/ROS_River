@@ -15,6 +15,12 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 __metaclass__ = type
 
 class ROSHandler:
+	'''
+	ROSHandler is a class that controls the ROS core for
+	the ROS River aplication. This class will setup subscribers
+	from the ROS core.
+	'''
+	
 	auto = True
 	logOut = None #level, msg, time
 	enabled = False
@@ -39,6 +45,10 @@ class ROSHandler:
 		self.auto = bool(msg.data)
 
 	def logCB(self, msg):
+		'''
+		subscribes to ROSout which encapsulates all ROS messages
+		this function will remove all but the important messages
+		'''
 		if self.joy:
 			return
 		elif msg.name == "/joy_node":
@@ -74,12 +84,16 @@ class ROSHandler:
 		else:
 			print ("Mode is set to Auto, unable to change status")
 
-class DisplayHander(ROSHandler):
+class DisplayHandler(ROSHandler):
+	'''
+	DisplayHandler takes ROSHandler information and 
+	sends it to show1.py to display to the screen
+	'''
 	exitInterrupt = False
 	timeToExit = 0
 
 	def __init__(self, width, height, brightness):
-		super(DisplayHander, self).__init__()
+		super(DisplayHandler, self).__init__()
 
 		self.displayWidth = int(width)
 		self.displayHeight = int(height)
@@ -88,10 +102,9 @@ class DisplayHander(ROSHandler):
 	def displayRun(self):
 		if self.auto:
 			self.displayThreadAuto()
-			#print((self.logOut), rospy.Time.now().to_sec() - self.logOut[2], self.counter, self.enabled)
 		else:
 			self.displayThreadManual()
-		self.counter += 3
+		self.counter += 3 #move the cursor 3 steps forward 
 
 	def displayThreadManual(self):
 		self.processStatus = subprocess.check_call(["sudo", "-H", "python3", 
@@ -137,11 +150,9 @@ class DisplayHander(ROSHandler):
 if __name__ == '__main__':
 	try:
 		rospy.init_node('display_node')
-		display = DisplayHander(32, 8, .01)
-#		rate = rospy.Rate(32)
+		display = DisplayHandler(32, 8, .01)
 		while not rospy.is_shutdown():
 			display.displayRun()
-#			rate.sleep()
 	except KeyboardInterrupt:
 		print("Keyboard Interrupt  Exit")
 	except subprocess.CalledProcessError:
