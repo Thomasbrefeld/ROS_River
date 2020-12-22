@@ -39,5 +39,5 @@ Required power is 12v at max 3 amps.
 * DC Voltage Regulator 12v to 5v
 
 ## Links
-GitHub Page: https://github.com/Thomasbrefeld/ROS_River
-Demo: https://youtu.be/Xvg98JJ5lbI
+* GitHub Page: https://github.com/Thomasbrefeld/ROS_River
+* Demo: https://youtu.be/Xvg98JJ5lbI
